@@ -1,0 +1,60 @@
+.App{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 900px;
+}
+
+.LogoPic {
+    height: 35%;
+    width: 65%;
+    align-self: center;
+    margin-top: 20px;
+}
+
+.LoginInputsContainer{
+    margin-top: 110px;
+    align-self: center;
+    align-items: baseline;
+    display: flex;
+    flex-direction: column;
+}
+
+.EmailLabel{
+    font-size: 24px;
+    margin-left: 5px;
+    position: absolute;
+}
+
+.PasswordLabel{
+    font-size: 24px;
+    margin-top: 75px;
+    margin-left: 5px;
+    position: absolute;
+}
+
+.EmailInput{
+    height: 30px;
+    width: 350px;
+    margin-top: 25px;
+    border-radius: 15px;
+    font-size: 18px;
+}
+
+.PasswordInput {
+    height: 30px;
+    width: 350px;
+    margin-top: 40px;
+    border-radius: 15px;
+    font-size: 18px;
+}
+
+.LoginButton{
+    width: 100px;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 30px;
+    border-width: 1px;
+    align-self: center;
+    font-size: 20px;
+}
