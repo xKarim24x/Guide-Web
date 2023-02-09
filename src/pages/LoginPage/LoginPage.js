@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Api from '../../api_calls/Api';
 import BaseCard from '../../components/BaseCard/BaseCard';
 import TopNavBar from '../../components/TopNavBar/TopNavBar';
 import './LoginPage.css';
 
 function LoginPage(){
+    const navigate = useNavigate();
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
     const [emailIsValid, setEmailIsValid] = useState(true);
@@ -15,6 +17,8 @@ function LoginPage(){
     const [user, setUser] = useState();
     const [userData, setUserData] = useState([]);
     const [usersGot, setUsersGot] = useState(false);
+    const [loginPressed, setLoginPressed] = useState(false);
+    const [initialRun, setInitialRun] = useState(true);
 
     useEffect(() => {
       async function getUsers() {
@@ -58,7 +62,6 @@ function LoginPage(){
 
     function Login() {
       console.log(userEmail);
-      let email;
       let emailPassed;
 
       setEmailIsValid(true);
@@ -71,20 +74,31 @@ function LoginPage(){
         setEmailIsValid(false);
         emailPassed = false;
       } else if (!ValidateEmail()) {
-        console.log(userEmail + " Doesn't Exist")
-        setErrorMessage("* Email or Password is Incorrect");
-        setAccountIsValid(false);
-        emailPassed = true;
+        if (userPassword == "") {
+          console.log("Password is Empty");
+          setErrorMessage("* Please enter your password");
+          setAccountIsValid(true);
+          setPasswordIsValid(false);
+        } else {
+          console.log(userEmail + " Doesn't Exist")
+          setErrorMessage("* Email or Password is Incorrect");
+          setAccountIsValid(false);
+          emailPassed = true;
+        }
       } else {
         setEmailIsValid(true);
         setAccountIsValid(true);
         emailPassed = true;
-        email = userEmail;
+        setLoginPressed(!loginPressed);
       }
     }
 
-    //Todo: Fix Bug where Password doesn't get checked if User isn't Updated
     useEffect(()=>{
+      if(initialRun){
+        setInitialRun(false);
+        return;
+      }
+
       if (userPassword == "") {
         console.log("Password is Empty");
         setErrorMessage("* Please enter your password");
@@ -100,13 +114,19 @@ function LoginPage(){
 
         console.log(`Logged in as ${userEmail}`);
       }
-    }, [user])
+    }, [loginPressed])
 
     return (
       <div className="App">
         <BaseCard className="LoginCard">
           <img className="LogoPic" src="/Images/logo.png"></img>
           <div className="LoginInputsContainer">
+            {(!accountIsValid || !emailIsValid) && (
+              <div className="TopErrorMessage">
+                <label>{errorMessage}</label>
+              </div>
+            )}
+
             <label className="EmailLabel">Email Address</label>
             <input
               className="EmailInput"
@@ -115,6 +135,12 @@ function LoginPage(){
                 setUserEmail(e.target.value);
               }}
             />
+
+            {!passwordIsValid && (
+              <div className='BottomErrorMessage'>
+                <label>{errorMessage}</label>
+              </div>
+            )}
 
             <label className="PasswordLabel">Password</label>
             <input
@@ -129,6 +155,8 @@ function LoginPage(){
           <button className="LoginButton" onClick={Login}>
             Login
           </button>
+
+          <button className='CreateUserButton' onClick={()=>navigate("new-user")}>Create User</button>
         </BaseCard>
       </div>
     );

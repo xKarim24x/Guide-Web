@@ -23,12 +23,13 @@
 .EmailLabel{
     font-size: 24px;
     margin-left: 5px;
+    margin-top: 15px;
     position: absolute;
 }
 
 .PasswordLabel{
     font-size: 24px;
-    margin-top: 75px;
+    margin-top: 100px;
     margin-left: 5px;
     position: absolute;
 }
@@ -36,7 +37,7 @@
 .EmailInput{
     height: 30px;
     width: 350px;
-    margin-top: 25px;
+    margin-top: 40px;
     border-radius: 15px;
     font-size: 18px;
 }
@@ -44,17 +45,48 @@
 .PasswordInput {
     height: 30px;
     width: 350px;
-    margin-top: 40px;
+    margin-top: 50px;
     border-radius: 15px;
     font-size: 18px;
 }
 
 .LoginButton{
-    width: 100px;
+    width: 200px;
     height: 50px;
     margin-top: 20px;
     border-radius: 30px;
     border-width: 1px;
     align-self: center;
     font-size: 20px;
+}
+
+.TopErrorMessage{
+    position: absolute;
+    margin-left: -6px;
+}
+
+.TopErrorMessage > label {
+    color: #cc0000;
+}
+
+.BottomErrorMessage{
+    position: absolute;
+    margin-left: -6px;
+    margin-top: 85px;
+}
+
+.BottomErrorMessage > label{
+    color: #cc0000;
+}
+
+.CreateUserButton{
+    width: 72px;
+    height: 20px;
+    margin-top: 5px;
+    border-radius:4px;
+    border-width: 0px;
+    border-bottom-width: 1px;
+    align-self: center;
+    font-size: 11px;
+    background-color: lightblue;
 }
