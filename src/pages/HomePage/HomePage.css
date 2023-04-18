@@ -1,0 +1,29 @@
+.HomePage {
+    display: flex;
+    min-height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    background-image: url('../../../public/Images/GuideBackground.png');
+    align-content: center;
+    flex-direction: column;
+}
+
+.FeaturedSlides{
+    width: 800px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.dividerDiv{
+    width: 820px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: center;
+    background-color: #0B0B0B;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+}

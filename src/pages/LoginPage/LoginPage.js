@@ -23,7 +23,7 @@ function LoginPage(){
     useEffect(() => {
       async function getUsers() {
         try {
-          const Users = await axios.get("https://guide-app-express-api.azurewebsites.net/api/users");
+          const Users = await axios.get(Api.baseURL + "users");
 
           if (!usersGot) {
             setUserData(Users.data);
@@ -62,19 +62,17 @@ function LoginPage(){
 
     function Login() {
       console.log(userEmail);
-      let emailPassed;
 
       setEmailIsValid(true);
       setPasswordIsValid(true);
       setAccountIsValid(true);
 
-      if (userEmail == "") {
+      if (userEmail === "") {
         console.log("UserEmail is Empty");
         setErrorMessage("* Please enter your email");
         setEmailIsValid(false);
-        emailPassed = false;
       } else if (!ValidateEmail()) {
-        if (userPassword == "") {
+        if (userPassword === "") {
           console.log("Password is Empty");
           setErrorMessage("* Please enter your password");
           setAccountIsValid(true);
@@ -83,12 +81,10 @@ function LoginPage(){
           console.log(userEmail + " Doesn't Exist")
           setErrorMessage("* Email or Password is Incorrect");
           setAccountIsValid(false);
-          emailPassed = true;
         }
       } else {
         setEmailIsValid(true);
         setAccountIsValid(true);
-        emailPassed = true;
         setLoginPressed(!loginPressed);
       }
     }
@@ -99,7 +95,7 @@ function LoginPage(){
         return;
       }
 
-      if (userPassword == "") {
+      if (userPassword === "") {
         console.log("Password is Empty");
         setErrorMessage("* Please enter your password");
         setAccountIsValid(true);
@@ -114,12 +110,14 @@ function LoginPage(){
 
         console.log(`Logged in as ${userEmail}`);
       }
+
+      navigate("/home", { state: {user: user} })
     }, [loginPressed])
 
     return (
-      <div className="App">
+      <div className={"LoginPage"}>
         <BaseCard className="LoginCard">
-          <img className="LogoPic" src="/Images/logo.png"></img>
+          <img className="LogoPic" src="/Images/logo.png" alt=''></img>
           <div className="LoginInputsContainer">
             {(!accountIsValid || !emailIsValid) && (
               <div className="TopErrorMessage">

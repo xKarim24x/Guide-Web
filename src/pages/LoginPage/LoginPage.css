@@ -1,92 +1,100 @@
-.App{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    height: 900px;
-}
+    .LoginPage{
+        display: flex;
+        min-height: 100vh;
+        margin: 0 auto;
+        text-align: center;
+        background-image: url('../../../public/Images/GuideBackground.png');
+        align-content: center;
+        flex-direction: column;
+    }
+    
+    .LogoPic {
+        height: 35%;
+        width: 65%;
+        align-self: center;
+        margin-top: 20px;
+    }
 
-.LogoPic {
-    height: 35%;
-    width: 65%;
-    align-self: center;
-    margin-top: 20px;
-}
+    .LoginInputsContainer {
+        margin-top: 110px;
+        align-self: center;
+        align-items: baseline;
+        display: flex;
+        flex-direction: column;
+    }
 
-.LoginInputsContainer{
-    margin-top: 110px;
-    align-self: center;
-    align-items: baseline;
-    display: flex;
-    flex-direction: column;
-}
+    .EmailLabel {
+        font-size: 24px;
+        margin-left: 5px;
+        margin-top: 15px;
+        position: absolute;
+        color: white;
+    }
 
-.EmailLabel{
-    font-size: 24px;
-    margin-left: 5px;
-    margin-top: 15px;
-    position: absolute;
-}
+    .PasswordLabel {
+        font-size: 24px;
+        margin-top: 100px;
+        margin-left: 5px;
+        position: absolute;
+        color: white;
+    }
 
-.PasswordLabel{
-    font-size: 24px;
-    margin-top: 100px;
-    margin-left: 5px;
-    position: absolute;
-}
+    .EmailInput {
+        height: 30px;
+        width: 350px;
+        margin-top: 40px;
+        border-radius: 15px;
+        font-size: 18px;
+    }
 
-.EmailInput{
-    height: 30px;
-    width: 350px;
-    margin-top: 40px;
-    border-radius: 15px;
-    font-size: 18px;
-}
+    .PasswordInput {
+        height: 30px;
+        width: 350px;
+        margin-top: 50px;
+        border-radius: 15px;
+        font-size: 18px;
+    }
 
-.PasswordInput {
-    height: 30px;
-    width: 350px;
-    margin-top: 50px;
-    border-radius: 15px;
-    font-size: 18px;
-}
+    .LoginButton {
+        width: 200px;
+        height: 50px;
+        margin-top: 20px;
+        border-radius: 30px;
+        border-width: 1px;
+        align-self: center;
+        font-size: 20px;
+    }
 
-.LoginButton{
-    width: 200px;
-    height: 50px;
-    margin-top: 20px;
-    border-radius: 30px;
-    border-width: 1px;
-    align-self: center;
-    font-size: 20px;
-}
+    .TopErrorMessage {
+        position: absolute;
+        margin-left: -6px;
+    }
 
-.TopErrorMessage{
-    position: absolute;
-    margin-left: -6px;
-}
+    .TopErrorMessage>label {
+        color: #cc0000;
+    }
 
-.TopErrorMessage > label {
-    color: #cc0000;
-}
+    .BottomErrorMessage {
+        position: absolute;
+        margin-left: -6px;
+        margin-top: 85px;
+    }
 
-.BottomErrorMessage{
-    position: absolute;
-    margin-left: -6px;
-    margin-top: 85px;
-}
+    .BottomErrorMessage>label {
+        color: #cc0000;
+    }
 
-.BottomErrorMessage > label{
-    color: #cc0000;
-}
-
-.CreateUserButton{
-    width: 72px;
-    height: 20px;
-    margin-top: 5px;
-    border-radius:4px;
-    border-width: 0px;
-    border-bottom-width: 1px;
-    align-self: center;
-    font-size: 11px;
-    background-color: lightblue;
-}
+    .CreateUserButton {
+        width: 72px;
+        height: 20px;
+        margin-top: 5px;
+        border-radius: 4px;
+        border-width: 0px;
+        border-bottom-width: 1px;
+        border-color: white;
+        align-self: center;
+        font-size: 11px;
+        background-color: #0B0B0B;
+        margin-bottom: 20px;
+        color: white;
+    }

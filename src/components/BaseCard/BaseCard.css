@@ -1,10 +1,22 @@
 .LoginCard{
     width: 40%;
     height: 80%;
-    background-color: lightblue;
+    background-color: #0B0B0B;
+    border: 1px solid #333;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     border-width: 2px;
-    border-color: blue;
+    align-self: center;
+    margin-top: 80px;
+}
+
+.FeaturedCard{
+    display: flex;
+    width: 800px;
+    height: 45%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
 }
